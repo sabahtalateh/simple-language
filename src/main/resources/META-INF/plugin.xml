@@ -1,5 +1,5 @@
 <idea-plugin>
-    <id>org.jetbrains.plugins.template</id>
+    <id>org.jetbrains.plugins.lang</id>
     <name>Template</name>
     <vendor>JetBrains</vendor>
 
@@ -8,12 +8,28 @@
     <depends>com.intellij.modules.platform</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <applicationService serviceImplementation="org.jetbrains.plugins.template.services.MyApplicationService"/>
-        <projectService serviceImplementation="org.jetbrains.plugins.template.services.MyProjectService"/>
+        <fileType name="Simple File" implementationClass="org.jetbrains.plugins.lang.SimpleFileType"
+                  fieldName="INSTANCE" language="Simple" extensions="simple"/>
+
+        <lang.parserDefinition
+                language="Simple"
+                implementationClass="org.jetbrains.plugins.lang.SimpleParserDefinition"/>
+
+        <lang.syntaxHighlighterFactory
+                language="Simple"
+                implementationClass="org.jetbrains.plugins.lang.SimpleSyntaxHighlighterFactory"/>
+
+        <colorSettingsPage implementation="org.jetbrains.plugins.lang.SimpleColorSettingsPage"/>
+
+        <annotator language="JAVA" implementationClass="org.jetbrains.plugins.lang.SimpleAnnotator"/>
     </extensions>
 
-    <applicationListeners>
-        <listener class="org.jetbrains.plugins.template.listeners.MyProjectManagerListener"
-                  topic="com.intellij.openapi.project.ProjectManagerListener"/>
-    </applicationListeners>
+    <actions>
+        <action id="org.jetbrains.plugins.lang.actions.SimpleCreateFile"
+                class="org.jetbrains.plugins.lang.actions.SimpleCreateFile"
+                text="Simple File"
+                description="Create new `Simple` file">
+            <add-to-group group-id="NewGroup" anchor="after" relative-to-action="NewFile"/>
+        </action>
+    </actions>
 </idea-plugin>

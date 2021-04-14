@@ -1,0 +1,25 @@
+{
+  parserClass="org.jetbrains.plugins.lang.SimpleParser"
+//  parserUtilClass="org.jetbrains.plugins.lang.SimpleParserUtil"
+
+  extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
+
+  psiClassPrefix="Simple"
+  psiImplClassSuffix="Impl"
+  psiPackage="org.jetbrains.plugins.lang.psi"
+  psiImplPackage="org.jetbrains.plugins.lang.psi.impl"
+
+  elementTypeHolderClass="org.jetbrains.plugins.lang.psi.SimpleTypes"
+  elementTypeClass="org.jetbrains.plugins.lang.psi.SimpleElementType"
+  tokenTypeClass="org.jetbrains.plugins.lang.psi.SimpleTokenType"
+
+  psiImplUtilClass="org.jetbrains.plugins.lang.psi.impl.SimplePsiImplUtil"
+}
+
+simpleFile ::= item_*
+
+private item_ ::= (property|COMMENT|CRLF)
+
+property ::= (KEY? SEPARATOR VALUE?) | KEY {
+//    methods=[getKey getValue]
+}

@@ -136,20 +136,21 @@ In addition to the configuration files, the most crucial part is the `src` direc
 The plugin configuration file is a [plugin.xml][file:plugin.xml] file located in the `src/main/resources/META-INF` directory. It provides general information about the plugin, its dependencies, extensions, and listeners.
 
 ```xml
+
 <idea-plugin>
-    <id>org.jetbrains.plugins.template</id>
-    <name>Template</name>
-    <vendor>JetBrains</vendor>
-    <depends>com.intellij.modules.platform</depends>
+  <id>org.jetbrains.plugins.langorg.jetbrains.plugins.lang</id>
+  <name>Template</name>
+  <vendor>JetBrains</vendor>
+  <depends>com.intellij.modules.platform</depends>
 
-    <extensions defaultExtensionNs="com.intellij">
-        <applicationService serviceImplementation="..."/>
-        <projectService serviceImplementation="..."/>
-    </extensions>
+  <extensions defaultExtensionNs="com.intellij">
+    <applicationService serviceImplementation="..."/>
+    <projectService serviceImplementation="..."/>
+  </extensions>
 
-    <projectListeners>
-        <listener class="..." topic="..."/>
-    </projectListeners>
+  <projectListeners>
+    <listener class="..." topic="..."/>
+  </projectListeners>
 </idea-plugin>
 ```
 
