@@ -1,6 +1,6 @@
 package com.github.sabahtalateh.simplelanguage.services
 
-import com.github.sabahtalateh.simplelanguage.MyBundle
+import org.jetbrains.plugins.lang.MyBundle
 
 class MyApplicationService {
 
