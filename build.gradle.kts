@@ -34,7 +34,14 @@ dependencies {
 }
 
 // Add generated classes to source set
-sourceSets["main"].java.srcDirs("src/main/gen")
+sourceSets {
+    main {
+        java.srcDirs(
+            "src/main/kotlin",
+            "src/main/gen"
+        )
+    }
+}
 
 // Configure gradle-intellij-plugin plugin.
 // Read more: https://github.com/JetBrains/gradle-intellij-plugin
@@ -46,7 +53,9 @@ intellij {
     updateSinceUntilBuild = true
 
     // Plugin Dependencies. Uses `platformPlugins` property from the gradle.properties file.
-    setPlugins(*properties("platformPlugins").split(',').map(String::trim).filter(String::isNotEmpty).toTypedArray())
+//    setPlugins(*properties("platformPlugins").split(',').map(String::trim).filter(String::isNotEmpty).toTypedArray())
+//    setPlugins("com.intellij.java")
+    setPlugins("com.intellij.java")
 }
 
 // Configure gradle-changelog-plugin plugin.

@@ -6,6 +6,7 @@
     <!-- Product and plugin compatibility requirements -->
     <!-- https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
     <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.java</depends>
 
     <extensions defaultExtensionNs="com.intellij">
         <fileType name="Simple File" implementationClass="org.jetbrains.plugins.lang.SimpleFileType"
@@ -22,6 +23,21 @@
         <colorSettingsPage implementation="org.jetbrains.plugins.lang.SimpleColorSettingsPage"/>
 
         <annotator language="JAVA" implementationClass="org.jetbrains.plugins.lang.SimpleAnnotator"/>
+
+        <codeInsight.lineMarkerProvider
+                language="JAVA"
+                implementationClass="org.jetbrains.plugins.lang.SimpleLineMarkerProvider"/>
+
+        <completion.contributor
+                language="Simple"
+                implementationClass="org.jetbrains.plugins.lang.SimpleCompletionContributor"/>
+
+        <psi.referenceContributor implementation="org.jetbrains.plugins.lang.SimpleReferenceContributor"/>
+
+        <lang.refactoringSupport
+                language="Simple"
+                implementationClass="org.jetbrains.plugins.lang.SimpleRefactoringSupportProvider"/>
+
     </extensions>
 
     <actions>

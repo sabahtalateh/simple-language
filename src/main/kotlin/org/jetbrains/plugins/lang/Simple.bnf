@@ -21,5 +21,7 @@ simpleFile ::= item_*
 private item_ ::= (property|COMMENT|CRLF)
 
 property ::= (KEY? SEPARATOR VALUE?) | KEY {
-    methods=[getKey getValue]
+    mixin="org.jetbrains.plugins.lang.psi.impl.SimpleNamedElementImpl"
+    implements="org.jetbrains.plugins.lang.psi.SimpleNamedElement"
+    methods=[getKey getValue getName setName getNameIdentifier]
 }

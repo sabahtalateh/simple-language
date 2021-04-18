@@ -1,12 +1,17 @@
 package org.jetbrains.plugins.lang
 
+import com.intellij.lang.ASTNode
 import com.intellij.openapi.project.Project
+import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiManager
 import com.intellij.psi.search.FileTypeIndex
 import com.intellij.psi.search.GlobalSearchScope
 import com.intellij.psi.util.PsiTreeUtil
+import org.jetbrains.plugins.lang.psi.SimpleElementFactory
 import org.jetbrains.plugins.lang.psi.SimpleFile
 import org.jetbrains.plugins.lang.psi.SimpleProperty
+import org.jetbrains.plugins.lang.psi.SimpleTypes
+import org.jetbrains.plugins.lang.psi.impl.SimplePsiImplUtil.getKey
 import java.util.*
 
 
@@ -24,9 +29,9 @@ class SimpleUtil {
                     )
                     if (properties != null) {
                         for (property in properties) {
-//                            if (key == property.key) {
-//                                result.add(property)
-//                            }
+                            if (key == property.key) {
+                                result.add(property)
+                            }
                         }
                     }
                 }

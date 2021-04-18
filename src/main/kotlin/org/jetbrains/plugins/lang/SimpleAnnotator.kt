@@ -7,6 +7,7 @@ import com.intellij.lang.annotation.HighlightSeverity
 import com.intellij.openapi.editor.DefaultLanguageHighlighterColors
 import com.intellij.openapi.util.TextRange
 import com.intellij.psi.PsiElement
+import com.intellij.psi.PsiImportList
 import com.intellij.psi.PsiLiteralExpression
 import org.jetbrains.plugins.lang.psi.SimpleProperty
 
@@ -25,7 +26,6 @@ class SimpleAnnotator : Annotator {
         }
 
         // Ensure the Psi element contains a string that starts with the prefix and separator
-//        val literalExpression = element
         val value = if (element.value is String) element.value as String? else null
         if (value == null || !value.startsWith(SIMPLE_PREFIX_STR + SIMPLE_SEPARATOR_STR)) {
             return
