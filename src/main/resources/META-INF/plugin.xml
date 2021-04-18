@@ -38,6 +38,14 @@
                 language="Simple"
                 implementationClass="org.jetbrains.plugins.lang.SimpleRefactoringSupportProvider"/>
 
+        <lang.findUsagesProvider
+                language="Simple"
+                implementationClass="org.jetbrains.plugins.lang.SimpleFindUsagesProvider"/>
+
+        <lang.foldingBuilder
+                language="JAVA"
+                implementationClass="org.jetbrains.plugins.lang.SimpleFoldingBuilder"/>
+
     </extensions>
 
     <actions>

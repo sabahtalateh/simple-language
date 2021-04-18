@@ -20,7 +20,7 @@ class SimpleReference(element: PsiElement, textRange: TextRange) :
 
     override fun multiResolve(incompleteCode: Boolean): Array<ResolveResult> {
         val project: Project = myElement.project
-        val properties = SimpleUtil.findProperties(project)
+        val properties = SimpleUtil.findProperties(project, key)
         val results: MutableList<ResolveResult> = ArrayList()
         for (property in properties) {
             results.add(PsiElementResolveResult(property))

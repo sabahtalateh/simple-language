@@ -16,7 +16,7 @@ class SimpleReferenceContributor : PsiReferenceContributor() {
                     context: ProcessingContext
                 ): Array<PsiReference> {
                     val literalExpression = element as PsiLiteralExpression
-                    val value = if (literalExpression.value is String) literalExpression.value as String else null
+                    val value = if (literalExpression.value is String) literalExpression.value as String? else null
                     if (value != null && value.startsWith(SIMPLE_PREFIX_STR + SIMPLE_SEPARATOR_STR)) {
                         val property = TextRange(
                             SIMPLE_PREFIX_STR.length + SIMPLE_SEPARATOR_STR.length + 1,
