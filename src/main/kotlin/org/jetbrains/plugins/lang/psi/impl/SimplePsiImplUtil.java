@@ -2,10 +2,15 @@ package org.jetbrains.plugins.lang.psi.impl;
 
 import com.intellij.lang.ASTNode;
 import com.intellij.lang.parser.GeneratedParserUtilBase;
+import com.intellij.navigation.ItemPresentation;
 import com.intellij.psi.PsiElement;
+import org.jetbrains.annotations.Nullable;
+import org.jetbrains.plugins.lang.SimpleIcons;
 import org.jetbrains.plugins.lang.psi.SimpleElementFactory;
 import org.jetbrains.plugins.lang.psi.SimpleProperty;
 import org.jetbrains.plugins.lang.psi.SimpleTypes;
+
+import javax.swing.*;
 
 public class SimplePsiImplUtil {
     public static String getKey(SimpleProperty element) {
@@ -49,5 +54,27 @@ public class SimplePsiImplUtil {
         } else {
             return null;
         }
+    }
+
+    public static ItemPresentation getPresentation(final SimpleProperty element) {
+        return new ItemPresentation() {
+            @Nullable
+            @Override
+            public String getPresentableText() {
+                return element.getKey();
+            }
+
+            @Nullable
+            @Override
+            public String getLocationString() {
+                return element.getContainingFile().getName();
+            }
+
+            @Nullable
+            @Override
+            public Icon getIcon(boolean unused) {
+                return SimpleIcons.INSTANCE.getFILE();
+            }
+        };
     }
 }

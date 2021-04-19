@@ -46,6 +46,24 @@
                 language="JAVA"
                 implementationClass="org.jetbrains.plugins.lang.SimpleFoldingBuilder"/>
 
+        <gotoSymbolContributor
+                implementation="org.jetbrains.plugins.lang.SimpleChooseByNameContributor"/>
+
+        <lang.psiStructureViewFactory
+                language="Simple"
+                implementationClass="org.jetbrains.plugins.lang.SimpleStructureViewFactory"/>
+
+        <lang.formatter
+                language="Simple"
+                implementationClass="org.jetbrains.plugins.lang.SimpleFormattingModelBuilder"/>
+
+        <codeStyleSettingsProvider implementation="org.jetbrains.plugins.lang.SimpleCodeStyleSettingsProvider"/>
+
+        <langCodeStyleSettingsProvider
+                implementation="org.jetbrains.plugins.lang.SimpleLanguageCodeStyleSettingsProvider"/>
+
+        <lang.commenter language="Simple" implementationClass="org.jetbrains.plugins.lang.SimpleCommenter"/>
+
     </extensions>
 
     <actions>

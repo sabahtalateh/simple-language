@@ -9,6 +9,7 @@ import com.intellij.psi.PsiElementVisitor;
 import com.intellij.psi.util.PsiTreeUtil;
 import static org.jetbrains.plugins.lang.psi.SimpleTypes.*;
 import org.jetbrains.plugins.lang.psi.*;
+import com.intellij.navigation.ItemPresentation;
 
 public class SimplePropertyImpl extends SimpleNamedElementImpl implements SimpleProperty {
 
@@ -49,6 +50,11 @@ public class SimplePropertyImpl extends SimpleNamedElementImpl implements Simple
   @Override
   public PsiElement getNameIdentifier() {
     return SimplePsiImplUtil.getNameIdentifier(this);
+  }
+
+  @Override
+  public ItemPresentation getPresentation() {
+    return SimplePsiImplUtil.getPresentation(this);
   }
 
 }
